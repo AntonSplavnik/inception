@@ -4,7 +4,8 @@ build:
 	docker-compose -f srcs/docker-compose.yml build
 
 up:
-	docker-compose -f srcs/docker-compose.yml up -d
+	mkdir -p /home/asplavni/data/wordpress /home/asplavni/data/mysql
+	docker-compose -f srcs/docker-compose.yml up --build -d
 
 down:
 	docker-compose -f srcs/docker-compose.yml down

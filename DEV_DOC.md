@@ -117,13 +117,6 @@ WP_USER_EMAIL=asplavni@student.42.fr
 EOF
 ```
 
-### Create Data Directories
-
-```bash
-sudo mkdir -p /home/asplavni/data/wordpress /home/asplavni/data/mysql
-sudo chown -R asplavni:asplavni /home/asplavni/data
-```
-
 ### Update Volume Paths
 
 In `srcs/docker-compose.yml`, make sure the volume devices point to `/home/asplavni/data/` (not `/tmp/inception/`):

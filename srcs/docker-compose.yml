@@ -1,7 +1,8 @@
 services:
   nginx:
     build: ./requirements/nginx
-    image: nginx
+    image: inception-nginx
+    pull_policy: never
     container_name: nginx
     ports:
       - "443:443"
@@ -13,7 +14,8 @@ services:
 
   wordpress:
     build: ./requirements/wordpress
-    image: wordpress
+    image: inception-wordpress
+    pull_policy: never
     container_name: wordpress
     env_file:
       - .env
@@ -29,7 +31,8 @@ services:
 
   mariadb:
     build: ./requirements/mariadb
-    image: mariadb
+    image: inception-mariadb
+    pull_policy: never
     container_name: mariadb
     env_file:
       - .env
@@ -60,13 +63,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-#      device: /home/asplavni/data/wordpress
-      device: /tmp/inception/wordpress
+      device: /home/asplavni/data/wordpress
+#      device: /tmp/inception/wordpress
 
   db_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-#      device: /home/asplavni/data/mysql
-      device: /tmp/inception/mysql
+      device: /home/asplavni/data/mysql
+#      device: /tmp/inception/mysql
